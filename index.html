@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <title>Aster Íñigo Volta — Tarjeta Digital</title>
+  <meta name="description" content="Tarjeta digital · Coordenada Viajes y Eureka Websites">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Aster Íñigo Volta">
+  <meta property="og:description" content="Tarjeta digital · Coordenada Viajes y Eureka Websites">
+  <meta property="og:image" content="https://eurekawebsites.github.io/tarjeta-aster/images/logo-icono.jpeg">
+  <meta property="og:image:width" content="334">
+  <meta property="og:image:height" content="334">
+  <meta property="og:url" content="https://eurekawebsites.github.io/tarjeta-aster/">
+  <meta property="og:site_name" content="Aster Íñigo Volta">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Aster Íñigo Volta">
+  <meta name="twitter:description" content="Tarjeta digital · Coordenada Viajes y Eureka Websites">
+  <meta name="twitter:image" content="https://eurekawebsites.github.io/tarjeta-aster/images/logo-icono.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: radial-gradient(ellipse at 50% 40%, #0e1a2e 0%, #080a0e 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px 32px;
+      font-family: 'Space Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .name {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 8vw, 2.6rem);
+      color: #F5F0E8;
+      letter-spacing: 0.5px;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.35);
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .choice {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .choice:hover { transform: translateY(-2px); opacity: 0.88; }
+    .choice:active { transform: translateY(0); }
+
+    .choice-viajes {
+      background: #111318;
+      border: 1px solid rgba(201,168,76,0.3);
+      box-shadow: 0 0 30px rgba(201,168,76,0.07), 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .choice-viajes::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(201,168,76,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .choice-software {
+      background: #111318;
+      border: 1px solid rgba(240,96,100,0.3);
+      box-shadow: 0 0 30px rgba(240,96,100,0.07), 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .choice-software::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(240,96,100,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .choice-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .choice-text { flex: 1; }
+
+    .choice-label {
+      font-size: 0.58rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .choice-viajes .choice-label { color: rgba(201,168,76,0.6); }
+    .choice-software .choice-label { color: rgba(240,96,100,0.6); }
+
+    .choice-name {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #F5F0E8;
+    }
+    .choice-software .choice-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+    }
+
+    .choice-arrow {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      opacity: 0.3;
+    }
+    .choice-viajes .choice-arrow { color: #C9A84C; opacity: 0.5; }
+    .choice-software .choice-arrow { color: #F06064; opacity: 0.5; }
+
+    footer {
+      margin-top: 48px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="name">Aster Íñigo Volta</h1>
+  <p class="subtitle">Selecciona una tarjeta</p>
+
+  <div class="choices">
+
+    <a class="choice choice-viajes" href="tarjeta-cv.html">
+      <div class="choice-icon">
+        <img src="images/logo-icono.svg" alt="" style="width:44px;height:44px;display:block;" />
+      </div>
+      <div class="choice-text">
+        <p class="choice-label">Viajes</p>
+        <p class="choice-name">Coordenada Viajes</p>
+      </div>
+      <svg class="choice-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </a>
+
+    <a class="choice choice-software" href="tarjeta-ew.html">
+      <div class="choice-icon">
+        <img src="images/eureka-websites/bird-icon.png" alt="" style="width:48px;height:48px;display:block;object-fit:contain;" />
+      </div>
+      <div class="choice-text">
+        <p class="choice-label">Software</p>
+        <p class="choice-name">Eureka Websites</p>
+      </div>
+      <svg class="choice-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </a>
+
+  </div>
+
+  <footer>
+    <a href="https://www.eurekawebsites.tech/" target="_blank" rel="noopener noreferrer"
+       style="font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;"
+       onmouseover="this.style.color='rgba(255,255,255,0.55)'"
+       onmouseout="this.style.color='rgba(255,255,255,0.25)'">
+      Powered by Eureka Websites
+    </a>
+  </footer>
+
+</body>
+</html>

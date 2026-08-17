@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <title>Aster Íñigo Volta — Eureka Websites</title>
+  <meta name="description" content="Digital Products Studio">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Aster Íñigo Volta — Eureka Websites">
+  <meta property="og:description" content="Digital Products Studio">
+  <meta property="og:image" content="https://eurekawebsites.github.io/tarjeta-aster/images/eureka-websites/bird-icon.png">
+  <meta property="og:image:width" content="466">
+  <meta property="og:image:height" content="515">
+  <meta property="og:url" content="https://eurekawebsites.github.io/tarjeta-aster/tarjeta-ew.html">
+  <meta property="og:site_name" content="Eureka Websites">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Aster Íñigo Volta — Eureka Websites">
+  <meta name="twitter:description" content="Digital Products Studio">
+  <meta name="twitter:image" content="https://eurekawebsites.github.io/tarjeta-aster/images/eureka-websites/bird-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: 'Space Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: radial-gradient(ellipse at 50% 60%, #2a0e10 0%, #160d0e 40%, #0a0c10 100%);
+      padding: 28px 20px 36px;
+    }
+
+    .card-ew {
+      background: #111318;
+      color: #f5f5f5;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 8px;
+      border: 1px solid rgba(240,96,100,0.18);
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(240,96,100,0.06), 0 8px 40px rgba(0,0,0,0.7);
+    }
+
+    .card-ew .top {
+      background: linear-gradient(160deg, #160d0e 0%, #111318 100%);
+      padding: 32px 28px 24px;
+      text-align: center;
+      border-bottom: 1px solid rgba(240,96,100,0.15);
+    }
+
+    .card-ew .logo-wrap {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fde8e4 0%, #f8cfc9 60%, #f0b8b0 100%);
+      border: 1px solid rgba(240,96,100,0.4);
+      box-shadow: 0 0 20px rgba(240,96,100,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .card-ew .logo-wrap img { width: 68px; height: auto; display: block; }
+
+    .card-ew .brand-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 6vw, 2.1rem);
+      color: #f5f5f5;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .card-ew .name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(245,245,245,0.5);
+      margin-bottom: 8px;
+    }
+
+    .card-ew .tagline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(245,245,245,0.45);
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+    }
+
+    .card-ew .strip {
+      background: rgba(240,96,100,0.1);
+      border-top: 1px solid rgba(240,96,100,0.18);
+      border-bottom: 1px solid rgba(240,96,100,0.18);
+      padding: 10px 20px;
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #F06064;
+      white-space: normal;
+      line-height: 1.8;
+    }
+
+    .card-ew .contact {
+      padding: 20px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #111318;
+    }
+
+    .card-ew .btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 16px;
+      border-radius: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      transition: opacity 0.18s ease, transform 0.1s ease;
+      background: #181b22;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #f5f5f5;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+
+    .card-ew .btn:hover { opacity: 0.78; transform: translateY(-1px); }
+    .card-ew .btn:active { transform: translateY(0); }
+
+    .card-ew .btn-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .card-ew .btn-label {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-ew .btn-type {
+      font-size: 0.58rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(245,245,245,0.4);
+      font-weight: 700;
+    }
+
+    .card-ew .btn-value {
+      font-size: 0.88rem;
+      color: #f5f5f5;
+      word-break: break-all;
+    }
+
+    .card-ew .btn-save {
+      background: rgba(240,96,100,0.12);
+      border: 1px solid rgba(240,96,100,0.4);
+      color: #F06064;
+      justify-content: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-ew">
+
+    <div class="top">
+      <div class="logo-wrap"><img src="images/eureka-websites/eureka-bird-1.svg" alt="Eureka Websites" style="width:68px;height:auto;" /></div>
+      <h1 class="brand-name">Eureka Websites</h1>
+      <p class="name">Aster Íñigo Volta</p>
+      <p class="tagline">Digital Products Studio</p>
+    </div>
+
+    <div class="strip">
+      Sitios web &nbsp;·&nbsp; Apps &nbsp;·&nbsp; Tarjetas digitales
+    </div>
+
+    <div class="contact">
+
+      <a class="btn" href="https://wa.me/19295226443" target="_blank" rel="noopener noreferrer">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="#F06064" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="btn-label">
+          <span class="btn-type">WhatsApp</span>
+          <span class="btn-value">+1 (929) 522-6443</span>
+        </span>
+      </a>
+
+      <a class="btn" href="https://www.instagram.com/eurekawebsites.tech" target="_blank" rel="noopener noreferrer">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#F06064" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="#F06064"/>
+        </svg>
+        <span class="btn-label">
+          <span class="btn-type">Instagram</span>
+          <span class="btn-value">@eurekawebsites.tech</span>
+        </span>
+      </a>
+
+      <a class="btn" href="https://www.linkedin.com/in/astervolta/" target="_blank" rel="noopener noreferrer">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#F06064" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+        <span class="btn-label">
+          <span class="btn-type">LinkedIn</span>
+          <span class="btn-value">Aster Volta</span>
+        </span>
+      </a>
+
+      <a class="btn" href="https://www.eurekawebsites.tech/" target="_blank" rel="noopener noreferrer">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#F06064" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span class="btn-label">
+          <span class="btn-type">Sitio web</span>
+          <span class="btn-value">eurekawebsites.tech</span>
+        </span>
+      </a>
+
+      <a class="btn" href="mailto:aster@eurekawebsites.tech">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#F06064" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <span class="btn-label">
+          <span class="btn-type">Email</span>
+          <span class="btn-value">aster@eurekawebsites.tech</span>
+        </span>
+      </a>
+
+      <button class="btn" onclick="copyClabeEW(this)" type="button">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#F06064" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="10" width="18" height="11" rx="1"/>
+          <polyline points="3 10 12 3 21 10"/>
+          <line x1="8" y1="14" x2="8" y2="21"/>
+          <line x1="12" y1="14" x2="12" y2="21"/>
+          <line x1="16" y1="14" x2="16" y2="21"/>
+        </svg>
+        <span class="btn-label">
+          <span class="btn-type">CLABE interbancaria BBVA</span>
+          <span class="btn-value" id="clabe-ew">012180015593495708</span>
+        </span>
+      </button>
+
+      <a class="btn btn-save" href="aster-eureka.vcf" download="Aster-Inigo-Eureka.vcf">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#F06064" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/>
+          <polyline points="17 21 17 13 7 13 7 21"/>
+          <polyline points="7 3 7 8 15 8"/>
+        </svg>
+        Guardar contacto
+      </a>
+
+    </div>
+  </div>
+
+  <footer style="text-align:center;padding:20px 0 12px">
+    <a href="https://www.eurekawebsites.tech/" target="_blank" rel="noopener noreferrer"
+       style="font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;"
+       onmouseover="this.style.color='rgba(255,255,255,0.55)'"
+       onmouseout="this.style.color='rgba(255,255,255,0.25)'">
+      Powered by Eureka Websites
+    </a>
+  </footer>
+
+  <script>
+    function copyClabeEW(btn) {
+      navigator.clipboard.writeText('012180015593495708').then(function() {
+        var el = btn.querySelector('#clabe-ew');
+        var orig = el.textContent;
+        el.textContent = '¡Copiado!';
+        setTimeout(function() { el.textContent = orig; }, 2000);
+      }).catch(function() {
+        var range = document.createRange();
+        range.selectNode(btn.querySelector('#clabe-ew'));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+      });
+    }
+  </script>
+
+</body>
+</html>
