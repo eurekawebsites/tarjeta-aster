@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" href="images/eureka-tech/eureka-tech-bird-256.png">
   <title>Aster Íñigo Volta — Tarjeta Digital</title>
-  <meta name="description" content="Tarjeta digital · Coordenada Viajes y Eureka Websites">
+  <meta name="description" content="Tarjeta digital · Coordenada Viajes y Eureka Tech">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Aster Íñigo Volta">
-  <meta property="og:description" content="Tarjeta digital · Coordenada Viajes y Eureka Websites">
+  <meta property="og:description" content="Tarjeta digital · Coordenada Viajes y Eureka Tech">
   <meta property="og:image" content="https://eurekawebsites.github.io/tarjeta-aster/images/logo-icono.jpeg">
   <meta property="og:image:width" content="334">
   <meta property="og:image:height" content="334">
@@ -16,44 +16,94 @@
   <meta property="og:site_name" content="Aster Íñigo Volta">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Aster Íñigo Volta">
-  <meta name="twitter:description" content="Tarjeta digital · Coordenada Viajes y Eureka Websites">
+  <meta name="twitter:description" content="Tarjeta digital · Coordenada Viajes y Eureka Tech">
   <meta name="twitter:image" content="https://eurekawebsites.github.io/tarjeta-aster/images/logo-icono.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* ══════════════════════════════════════════════════════════
+       Personal card hub — deliberately brand-neutral at the
+       page level. Neither Coordenada Viajes nor Eureka Tech
+       owns this shell; each business keeps its own identity
+       inside its own tile only. No new artwork here — typography,
+       layout, and CSS only. Existing approved logos used as-is.
+       ══════════════════════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { overflow-x: hidden; }
+
     body {
       min-height: 100vh;
       min-height: 100dvh;
-      background: radial-gradient(ellipse at 50% 40%, #0e1a2e 0%, #080a0e 100%);
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,255,255,0.05) 0%, transparent 60%),
+        linear-gradient(175deg, #14161c 0%, #0a0b0e 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 40px 24px 32px;
+      padding: 56px 24px 32px;
       font-family: 'Space Grotesk', sans-serif;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .hub {
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Monogram — plain typography, not artwork ── */
+    .monogram {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(155deg, rgba(255,255,255,0.09), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 12px 28px rgba(0,0,0,0.4);
+      margin-bottom: 22px;
+    }
+    .monogram span {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: rgba(245,240,232,0.82);
+      letter-spacing: 1px;
     }
 
     .name {
       font-family: 'EB Garamond', Georgia, serif;
       font-weight: 400;
-      font-size: clamp(2rem, 8vw, 2.6rem);
+      font-size: clamp(1.9rem, 7vw, 2.4rem);
       color: #F5F0E8;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
       text-align: center;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .subtitle {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.62rem;
+      font-size: 0.66rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: rgba(245,240,232,0.35);
+      color: rgba(245,240,232,0.32);
       text-align: center;
-      margin-bottom: 52px;
+      margin-bottom: 44px;
+    }
+
+    .section-label {
+      align-self: flex-start;
+      font-size: 0.6rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.28);
+      margin-bottom: 14px;
+      padding-left: 2px;
     }
 
     .choices {
@@ -61,74 +111,64 @@
       flex-direction: column;
       gap: 14px;
       width: 100%;
-      max-width: 340px;
     }
 
     .choice {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
       padding: 20px 22px;
-      border-radius: 10px;
+      border-radius: 14px;
       text-decoration: none;
-      transition: transform 0.15s ease, opacity 0.15s ease;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
       position: relative;
       overflow: hidden;
+      background: linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.08);
     }
-    .choice:hover { transform: translateY(-2px); opacity: 0.88; }
+    .choice:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-border, rgba(255,255,255,0.16));
+      box-shadow: 0 16px 32px -12px rgba(0,0,0,0.55);
+    }
     .choice:active { transform: translateY(0); }
 
-    .choice-viajes {
-      background: #111318;
-      border: 1px solid rgba(201,168,76,0.3);
-      box-shadow: 0 0 30px rgba(201,168,76,0.07), 0 4px 20px rgba(0,0,0,0.5);
-    }
-    .choice-viajes::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(201,168,76,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
+    .choice-viajes { --accent-border: rgba(201,168,76,0.4); }
+    .choice-software { --accent-border: rgba(255,107,107,0.4); }
 
-    .choice-software {
-      background: #111318;
-      border: 1px solid rgba(240,96,100,0.3);
-      box-shadow: 0 0 30px rgba(240,96,100,0.07), 0 4px 20px rgba(0,0,0,0.5);
-    }
-    .choice-software::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(240,96,100,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
+    /* Tile icon — each business keeps its own approved artwork,
+       just given a consistent frame at the page level. */
     .choice-icon {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
     }
+    .choice-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .choice-text { flex: 1; }
+    .choice-text { flex: 1; min-width: 0; }
 
     .choice-label {
-      font-size: 0.58rem;
+      font-size: 0.6rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
-    .choice-viajes .choice-label { color: rgba(201,168,76,0.6); }
-    .choice-software .choice-label { color: rgba(240,96,100,0.6); }
+    .choice-viajes .choice-label { color: rgba(201,168,76,0.72); }
+    .choice-software .choice-label { color: rgba(255,107,107,0.72); }
 
     .choice-name {
       font-family: 'EB Garamond', Georgia, serif;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 400;
       color: #F5F0E8;
+      line-height: 1.2;
     }
     .choice-software .choice-name {
       font-family: 'Space Grotesk', sans-serif;
@@ -136,52 +176,58 @@
     }
 
     .choice-arrow {
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
       flex-shrink: 0;
-      opacity: 0.3;
+      color: rgba(245,240,232,0.3);
+      transition: transform 0.18s ease, color 0.18s ease;
     }
-    .choice-viajes .choice-arrow { color: #C9A84C; opacity: 0.5; }
-    .choice-software .choice-arrow { color: #F06064; opacity: 0.5; }
+    .choice:hover .choice-arrow { transform: translateX(2px); color: rgba(245,240,232,0.55); }
 
     footer {
-      margin-top: 48px;
+      margin-top: 52px;
       text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <h1 class="name">Aster Íñigo Volta</h1>
-  <p class="subtitle">Selecciona una tarjeta</p>
+  <div class="hub">
 
-  <div class="choices">
+    <div class="monogram"><span>AV</span></div>
+    <h1 class="name">Aster Íñigo Volta</h1>
+    <p class="subtitle">Elige una tarjeta</p>
 
-    <a class="choice choice-viajes" href="tarjeta-cv.html">
-      <div class="choice-icon">
-        <img src="images/logo-icono.svg" alt="" style="width:44px;height:44px;display:block;" />
-      </div>
-      <div class="choice-text">
-        <p class="choice-label">Viajes</p>
-        <p class="choice-name">Coordenada Viajes</p>
-      </div>
-      <svg class="choice-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="9 18 15 12 9 6"/>
-      </svg>
-    </a>
+    <p class="section-label">Negocios</p>
+    <div class="choices">
 
-    <a class="choice choice-software" href="tarjeta-ew.html">
-      <div class="choice-icon">
-        <img src="images/eureka-websites/bird-icon.png" alt="" style="width:48px;height:48px;display:block;object-fit:contain;" />
-      </div>
-      <div class="choice-text">
-        <p class="choice-label">Software</p>
-        <p class="choice-name">Eureka Websites</p>
-      </div>
-      <svg class="choice-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="9 18 15 12 9 6"/>
-      </svg>
-    </a>
+      <a class="choice choice-viajes" href="tarjeta-cv.html">
+        <div class="choice-icon">
+          <img src="images/brand/avatar_badge_256w.webp" alt="" />
+        </div>
+        <div class="choice-text">
+          <p class="choice-label">Viajes</p>
+          <p class="choice-name">Coordenada Viajes</p>
+        </div>
+        <svg class="choice-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </a>
+
+      <a class="choice choice-software" href="tarjeta-ew.html">
+        <div class="choice-icon">
+          <img src="images/eureka-tech/eureka-tech-bird-256.png" alt="" style="object-fit:contain;padding:8px;" />
+        </div>
+        <div class="choice-text">
+          <p class="choice-label">Software</p>
+          <p class="choice-name">Eureka Tech</p>
+        </div>
+        <svg class="choice-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </a>
+
+    </div>
 
   </div>
 
@@ -190,7 +236,7 @@
        style="font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;"
        onmouseover="this.style.color='rgba(255,255,255,0.55)'"
        onmouseout="this.style.color='rgba(255,255,255,0.25)'">
-      Powered by Eureka Websites
+      POWERED BY EUREKA TECH
     </a>
   </footer>
 

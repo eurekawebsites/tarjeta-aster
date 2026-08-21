@@ -1,0 +1,30 @@
+:root {
+  /* Coordenada Viajes — canonical UI palette */
+  --cv-green: #2D5016;
+  --cv-dark-green: #1E3A0F;
+  --cv-gold: #C9A84C;
+  --cv-gold-hover: #B8963E;
+  --cv-cream: #F5F0E8;
+  --cv-light-bg: #FAF7F2;
+  --cv-text: #2A2318;
+  --cv-muted: #7A6E5A;
+  --cv-border: #D6CFBF;
+
+  /* Typography */
+  --cv-serif: "EB Garamond", Georgia, "Times New Roman", serif;
+  --cv-sans: Arial, Helvetica, sans-serif;
+
+  /* Shared geometry */
+  --cv-radius: 3px;
+  --cv-section-space: 88px;
+  --cv-card-gap: 28px;
+  --cv-shadow-card: 0 10px 36px rgba(45, 80, 22, 0.11);
+}
+
+/*
+IMPORTANT:
+- Do not recreate the approved logo in CSS/SVG.
+- Use the supplied PNG/WebP assets.
+- The logo artwork contains its own darker greens / metallic-gold shading.
+  Do NOT recolor it to force-match these flat UI tokens.
+*/
