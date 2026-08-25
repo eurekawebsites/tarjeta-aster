@@ -113,9 +113,15 @@
     }
 
     /* Brief copy confirmation. Sits below the card, never over the
-       artwork, so it doesn't violate "no visible HTML text over image". */
+       artwork, so it doesn't violate "no visible HTML text over image".
+       position: absolute so it never occupies layout space (it would
+       otherwise push the footer down even while invisible/opacity:0). */
     .copy-toast {
-      margin-top: 10px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(100% + 10px);
+      text-align: center;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 0.78rem;
       font-weight: 600;
@@ -162,9 +168,9 @@
        style="left:13.7195%; top:82.9894%; width:70.3252%; height:5.6911%;"
        aria-label="Guardar contacto"></button>
 
-  </div>
+    <p class="copy-toast" id="copy-toast" role="status" aria-live="polite">¡CLABE copiada!</p>
 
-  <p class="copy-toast" id="copy-toast" role="status" aria-live="polite">¡CLABE copiada!</p>
+  </div>
 
   <footer style="text-align:center;padding:20px 0 12px">
     <a href="https://www.eurekawebsites.tech/" target="_blank" rel="noopener noreferrer"
