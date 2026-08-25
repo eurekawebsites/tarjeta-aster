@@ -69,11 +69,15 @@
     }
 
     /* ===== Card =====
-       The entire visible card — background, border, notches, stamps,
-       compass, all typography, contact rows, save plaque, and the
-       Eureka footer — is one locked production image. Nothing here
-       draws, positions, or types any visible element; the overlays
-       below are purely invisible click targets. */
+       The visible card — background, border, notches, stamps, compass,
+       all typography, contact rows, and save plaque — is one locked
+       production image. The Eureka attribution is intentionally NOT part
+       of that artwork: it's live HTML (the real Symbol B <img> plus real
+       text) absolutely positioned over the same footer zone the artwork
+       used to draw it in, so it can be updated independently of the
+       card art. Nothing here draws, positions, or types any other
+       visible element; the remaining overlays are invisible click
+       targets. */
 
     .cv-card {
       position: relative;
@@ -107,6 +111,36 @@
       outline: 2px solid #b98a34;
       outline-offset: 2px;
     }
+
+    /* ===== Eureka attribution =====
+       Live HTML, positioned over the exact pixel box erased from the
+       card artwork (x:200-770, y:1485-1560 of the 984x1599 reference
+       => left:20.33%, top:92.87%, width:57.93%, height:4.69%). Real
+       Symbol B <img> plus real text — not baked into the card artwork. */
+    .eureka-attribution {
+      position: absolute;
+      left: 20.33%;
+      top: 92.87%;
+      width: 57.93%;
+      height: 4.69%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(0.62rem, 2.6vw, 0.78rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #2A2318;
+      white-space: nowrap;
+    }
+    .eureka-attribution:hover { color: #1E3A0F; }
+    .eureka-attribution img {
+      width: 1.15em;
+      height: 1.15em;
+      flex-shrink: 0;
+    }
+    .eureka-attribution strong { font-weight: 800; }
 
     /* Brief copy confirmation. Sits below the card, never over the
        artwork, so it doesn't violate "no visible HTML text over image". */
@@ -158,9 +192,10 @@
        style="left:13.7195%; top:82.9894%; width:70.3252%; height:5.6911%;"
        aria-label="Guardar contacto"></button>
 
-    <a class="hotspot" href="https://www.eurekawebsites.tech/" target="_blank" rel="noopener noreferrer"
-       style="left:24.5935%; top:90.7442%; width:50.8130%; height:4.2527%;"
-       aria-label="Eureka Tech"></a>
+    <a class="eureka-attribution" href="https://www.eurekawebsites.tech/" target="_blank" rel="noopener noreferrer">
+      <img src="images/eureka-tech/eureka-tech-b-64.png" alt="">
+      <span>POWERED BY&nbsp;<strong>EUREKA TECH</strong></span>
+    </a>
 
   </div>
 
