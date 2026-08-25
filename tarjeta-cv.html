@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/coordenada-icon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="icons/coordenada-icon-180.png">
-  <meta name="theme-color" content="#2D5016">
+  <meta name="theme-color" content="#F5EFDF">
   <title>Aster Íñigo Volta — Coordenada Viajes</title>
   <meta name="description" content="Asesor de Viajes · Viajes personalizados a cualquier rincón del mundo">
   <meta property="og:type" content="profile">
@@ -21,15 +21,28 @@
   <meta name="twitter:title" content="Aster Íñigo Volta — Coordenada Viajes">
   <meta name="twitter:description" content="Asesor de Viajes · Viajes personalizados a cualquier rincón del mundo">
   <meta name="twitter:image" content="https://eurekawebsites.github.io/tarjeta-aster/images/brand/og-share-1200x630.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/brand-tokens.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
 
     body {
       min-height: 100vh;
@@ -40,292 +53,141 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: radial-gradient(ellipse at 50% 30%, #0e2414 0%, #0a0c10 70%);
-      padding: 28px 20px 36px;
-    }
-
-    .card-cv {
-      background: #111318;
-      color: #F5F0E8;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 8px;
-      border: 1px solid rgba(201,168,76,0.2);
-      overflow: hidden;
-      box-shadow: 0 0 40px rgba(201,168,76,0.08), 0 8px 40px rgba(0,0,0,0.7);
-    }
-
-    .card-cv .top {
-      padding: 28px 32px 24px;
-      text-align: center;
-      background: linear-gradient(160deg, #0e1f08 0%, #111318 100%);
-      border-bottom: 1px solid rgba(201,168,76,0.2);
-      position: relative;
-    }
-
-    .card-cv .suitcase {
-      width: 130px;
-      height: auto;
-      margin: 0 auto 16px;
-    }
-
-    .card-cv .brand-bar {
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 0.88rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      background: rgba(201,168,76,0.12);
-      color: #C9A84C;
-      border-top: 1px solid rgba(201,168,76,0.2);
-      border-bottom: 1px solid rgba(201,168,76,0.2);
-      padding: 9px 32px;
-      margin: 0 -32px 20px;
-    }
-
-    .card-cv .name {
-      font-family: 'EB Garamond', Georgia, serif;
-      font-weight: 400;
-      font-size: clamp(1.8rem, 7vw, 2.3rem);
-      line-height: 1.1;
-      color: #F5F0E8;
-      margin-bottom: 6px;
-    }
-
-    .card-cv .role {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #C9A84C;
-      margin-bottom: 12px;
-    }
-
-    .card-cv .tagline {
-      font-family: 'EB Garamond', Georgia, serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: #F5F0E8;
-      opacity: 0.85;
-      line-height: 1.4;
-      margin-bottom: 4px;
-    }
-
-    .card-cv .sub {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.68rem;
-      color: rgba(248,245,238,0.55);
-      line-height: 1.5;
-    }
-
-    .bracket {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-color: #C9A84C;
-      border-style: solid;
-      opacity: 0.5;
-    }
-    .bracket--tl { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
-    .bracket--tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
-    .bracket--bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
-    .bracket--br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
-
-    .card-cv .strip {
-      padding: 11px 20px;
-      text-align: center;
-      background: rgba(201,168,76,0.1);
-      border-top: 1px solid rgba(201,168,76,0.18);
-      border-bottom: 1px solid rgba(201,168,76,0.18);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #C9A84C;
-      font-weight: 700;
-      white-space: normal;
-      line-height: 1.8;
-    }
-
-    .card-cv .contact {
-      padding: 18px 24px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      background: #111318;
-    }
-
-    .card-cv .btn {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 16px;
-      border-radius: 6px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.82rem;
-      transition: opacity 0.18s ease, transform 0.1s ease;
-      background: #181b22;
-      border: 1px solid rgba(201,168,76,0.15);
-      color: #F5F0E8;
-      cursor: pointer;
-      width: 100%;
-      text-align: left;
-    }
-
-    .card-cv .btn:hover { opacity: 0.75; transform: translateY(-1px); }
-
-    .card-cv .btn-icon { width: 20px; height: 20px; flex-shrink: 0; }
-
-    .card-cv .btn-label {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      flex: 1;
-      min-width: 0;
-    }
-
-    .card-cv .btn-type {
-      font-size: 0.6rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(201,168,76,0.6);
-    }
-
-    .card-cv .btn-value {
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 0.95rem;
-      color: #F5F0E8;
-      word-break: break-all;
-    }
-
-    .card-cv .btn-save {
-      background: rgba(201,168,76,0.15);
-      border: 1px solid rgba(201,168,76,0.4);
-      color: #C9A84C;
       justify-content: center;
-      gap: 10px;
-      font-family: 'EB Garamond', Georgia, serif;
-      font-weight: 500;
-      letter-spacing: 2px;
-      font-size: 1rem;
-      text-transform: uppercase;
+      background:
+        url("images/coordenada-card/page-background-light-desktop.webp")
+        center center / cover fixed no-repeat;
+      padding: 24px 12px;
     }
+
+    @media (max-width: 700px) {
+      body {
+        background-image:
+          url("images/coordenada-card/page-background-light-mobile.webp");
+        background-attachment: scroll;
+      }
+    }
+
+    /* ===== Card =====
+       The entire visible card — background, border, notches, stamps,
+       compass, all typography, contact rows, save plaque, and the
+       Eureka footer — is one locked production image. Nothing here
+       draws, positions, or types any visible element; the overlays
+       below are purely invisible click targets. */
+
+    .cv-card {
+      position: relative;
+      width: min(calc(100vw - 24px), 430px);
+      aspect-ratio: 984 / 1599;
+      margin-inline: auto;
+    }
+
+    .cv-card-art {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* transparent interactive overlays only */
+    .hotspot {
+      position: absolute;
+      display: block;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    /* only show an accessibility focus ring for keyboard users */
+    .hotspot:focus-visible {
+      outline: 2px solid #b98a34;
+      outline-offset: 2px;
+    }
+
+    /* Brief copy confirmation. Sits below the card, never over the
+       artwork, so it doesn't violate "no visible HTML text over image". */
+    .copy-toast {
+      margin-top: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #2D5016;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    .copy-toast.show { opacity: 1; }
   </style>
 </head>
 <body>
 
-  <div class="card-cv">
+  <div class="cv-card" aria-label="Tarjeta digital de Aster Íñigo Volta — Coordenada Viajes">
+    <img
+      class="cv-card-art"
+      src="images/coordenada-card/aster-coordenada-approved-exact-430.webp"
+      srcset="images/coordenada-card/aster-coordenada-approved-exact-430.webp 430w, images/coordenada-card/aster-coordenada-approved-exact.webp 984w"
+      sizes="(max-width: 430px) 100vw, 430px"
+      alt=""
+      draggable="false"
+    >
 
-    <div class="top">
-      <div class="bracket bracket--tl"></div>
-      <div class="bracket bracket--tr"></div>
+    <!-- transparent interactive overlays only; positions measured from the locked 984x1599 reference -->
 
-      <img
-        class="suitcase"
-        src="images/brand/avatar_badge_256w.webp"
-        srcset="images/brand/avatar_badge_256w.webp 256w, images/brand/avatar_badge_512w.webp 512w"
-        sizes="130px"
-        alt=""
-      >
+    <a class="hotspot" href="https://wa.me/19295226443" target="_blank" rel="noopener noreferrer"
+       style="left:15.2439%; top:54.9093%; width:66.7683%; height:6.1914%;"
+       aria-label="WhatsApp +1 (929) 522-6443"></a>
 
-      <p class="brand-bar">Coordenada Viajes</p>
-      <h1 class="name">Aster Íñigo Volta</h1>
-      <p class="role">Asesor de Viajes</p>
-      <p class="tagline">Tu destino tiene una coordenada</p>
-      <p class="sub">Viajes personalizados a cualquier rincón del mundo</p>
+    <a class="hotspot" href="https://www.instagram.com/coordenada.viajes/" target="_blank" rel="noopener noreferrer"
+       style="left:15.2439%; top:61.7261%; width:66.7683%; height:6.1914%;"
+       aria-label="Instagram @coordenada.viajes"></a>
 
-      <div class="bracket bracket--bl"></div>
-      <div class="bracket bracket--br"></div>
-    </div>
+    <a class="hotspot" href="https://coordenadaviajes.com" target="_blank" rel="noopener noreferrer"
+       style="left:15.2439%; top:68.5428%; width:66.7683%; height:6.1914%;"
+       aria-label="Sitio web coordenadaviajes.com"></a>
 
-    <div class="strip">
-      Hoteles &nbsp;·&nbsp; Tours &nbsp;·&nbsp; Cruceros &nbsp;·&nbsp; Paquetes
-    </div>
+    <button type="button" class="hotspot" onclick="copyClabeCV(this)"
+       style="left:15.2439%; top:75.3596%; width:66.7683%; height:6.1914%;"
+       aria-label="Copiar CLABE interbancaria BBVA 012180015593495708">
+      <span class="sr-only" id="clabe-cv">012180015593495708</span>
+    </button>
 
-    <div class="contact">
+    <button type="button" class="hotspot" onclick="saveContactCV()"
+       style="left:13.7195%; top:82.9894%; width:70.3252%; height:5.6911%;"
+       aria-label="Guardar contacto"></button>
 
-      <a class="btn" href="https://wa.me/19295226443" target="_blank" rel="noopener noreferrer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="#C9A84C" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        <span class="btn-label">
-          <span class="btn-type">WhatsApp</span>
-          <span class="btn-value">+1 (929) 522-6443</span>
-        </span>
-      </a>
+    <a class="hotspot" href="https://www.eurekawebsites.tech/" target="_blank" rel="noopener noreferrer"
+       style="left:24.5935%; top:90.7442%; width:50.8130%; height:4.2527%;"
+       aria-label="Eureka Tech"></a>
 
-      <a class="btn" href="https://www.instagram.com/coordenada.viajes/" target="_blank" rel="noopener noreferrer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="0.5" fill="#C9A84C"/>
-        </svg>
-        <span class="btn-label">
-          <span class="btn-type">Instagram</span>
-          <span class="btn-value">@coordenada.viajes</span>
-        </span>
-      </a>
-
-      <a class="btn" href="https://coordenadaviajes.com" target="_blank" rel="noopener noreferrer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-        <span class="btn-label">
-          <span class="btn-type">Sitio web</span>
-          <span class="btn-value">coordenadaviajes.com</span>
-        </span>
-      </a>
-
-      <button class="btn" onclick="copyClabeCV(this)" type="button">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="10" width="18" height="11" rx="1"/>
-          <polyline points="3 10 12 3 21 10"/>
-          <line x1="8" y1="14" x2="8" y2="21"/>
-          <line x1="12" y1="14" x2="12" y2="21"/>
-          <line x1="16" y1="14" x2="16" y2="21"/>
-        </svg>
-        <span class="btn-label">
-          <span class="btn-type">CLABE interbancaria BBVA</span>
-          <span class="btn-value" id="clabe-cv">012180015593495708</span>
-        </span>
-      </button>
-
-      <button class="btn btn-save" onclick="saveContactCV()" type="button">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/>
-          <polyline points="17 21 17 13 7 13 7 21"/>
-          <polyline points="7 3 7 8 15 8"/>
-        </svg>
-        Guardar contacto
-      </button>
-
-    </div>
   </div>
 
-  <footer style="text-align:center;padding:20px 0 12px">
-    <a href="https://www.eurekawebsites.tech/" target="_blank" rel="noopener noreferrer"
-       style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;"
-       onmouseover="this.style.color='rgba(255,255,255,0.55)'"
-       onmouseout="this.style.color='rgba(255,255,255,0.25)'">
-      <img src="images/eureka-tech/eureka-tech-b-64.png" alt="" style="width:14px;height:14px;display:block;" />
-      POWERED BY EUREKA TECH
-    </a>
-  </footer>
+  <p class="copy-toast" id="copy-toast" role="status" aria-live="polite">¡CLABE copiada!</p>
 
   <script>
     function copyClabeCV(btn) {
       navigator.clipboard.writeText('012180015593495708').then(function() {
-        var el = btn.querySelector('#clabe-cv');
-        var orig = el.textContent;
-        el.textContent = '¡Copiado!';
-        setTimeout(function() { el.textContent = orig; }, 2000);
+        showCopyToast();
       }).catch(function() {
         var range = document.createRange();
         range.selectNode(btn.querySelector('#clabe-cv'));
         window.getSelection().removeAllRanges();
         window.getSelection().addRange(range);
+        showCopyToast();
       });
+    }
+
+    function showCopyToast() {
+      var toast = document.getElementById('copy-toast');
+      toast.classList.add('show');
+      clearTimeout(showCopyToast._t);
+      showCopyToast._t = setTimeout(function() {
+        toast.classList.remove('show');
+      }, 2000);
     }
 
     function saveContactCV() {
