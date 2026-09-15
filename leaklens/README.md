@@ -35,6 +35,7 @@ For a service business, one missed high-intent lead can be worth more than the c
 ## Live demo and presentation
 - Live app: https://eurekawebsites.github.io/tarjeta-aster/leaklens/
 - Presentation deck: https://eurekawebsites.github.io/tarjeta-aster/leaklens/deck.html
+- Reproducible QA / acceptance tests: https://github.com/eurekawebsites/tarjeta-aster/blob/main/leaklens/TESTING.md
 - Source: https://github.com/eurekawebsites/tarjeta-aster/tree/main/leaklens
 
 ## Verified behavior
