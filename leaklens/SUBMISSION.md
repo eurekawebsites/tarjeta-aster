@@ -36,6 +36,7 @@ The main design challenge was balancing usefulness with explainability. An opaqu
 - Browser-side zero-shot AI with no API key
 - Graceful non-AI fallback
 - Public documentation and live demo
+- Live browser QA confirmed the scoring, action plan, and local model load successfully
 
 ### What we learned
 AI is most useful here when it complements deterministic product logic rather than replacing it. The hybrid design creates a more trustworthy workflow: obvious signals remain auditable while the model contributes where language is ambiguous.
@@ -50,6 +51,9 @@ AI is most useful here when it complements deterministic product logic rather th
 
 ## Built with
 JavaScript, HTML, CSS, Transformers.js, MobileBERT, ONNX, Hugging Face, GitHub Pages
+
+## Development assistance disclosure
+ChatGPT was used during the hackathon as a development assistant for ideation, implementation support, QA planning, copy editing, and submission preparation. LeakLens does not depend on ChatGPT or any hosted LLM API at runtime. Its semantic AI runs locally in the browser through Transformers.js and MobileBERT MNLI.
 
 ## Links
 Live demo: https://eurekawebsites.github.io/tarjeta-aster/leaklens/
