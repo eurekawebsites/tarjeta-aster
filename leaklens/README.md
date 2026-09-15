@@ -18,12 +18,15 @@ LeakLens uses a hybrid approach:
 
 No API key is required. Analyzed business text is not sent to an LLM provider. The app remains fully usable in explainable rules-only mode if the browser model cannot load.
 
-## Demo
-Live app: https://eurekawebsites.github.io/tarjeta-aster/leaklens/
-
-Source: https://github.com/eurekawebsites/tarjeta-aster/tree/main/leaklens
+## Live demo and presentation
+- Live app: https://eurekawebsites.github.io/tarjeta-aster/leaklens/
+- Presentation deck: https://eurekawebsites.github.io/tarjeta-aster/leaklens/deck.html
+- Source: https://github.com/eurekawebsites/tarjeta-aster/tree/main/leaklens
 
 Click **Load sample**, then **Analyze conversion leaks**. Optionally click **Load local AI** first to add browser-side semantic classification.
+
+## Verified behavior
+A live browser QA pass confirmed that the sample audit produces a conversion-health score, ranked evidence-backed findings, prioritized P1/P2 remediation, and successfully loads the browser-local AI model.
 
 ## Tech
 - HTML/CSS/JavaScript
@@ -48,5 +51,8 @@ Local service businesses, agencies, freelancers and growth teams that want a fas
 - Conversion-event integrations
 - Vertical-specific scoring
 - Before/after audit history
+
+## Development assistance
+ChatGPT was used as a development assistant for ideation, implementation support, QA planning, copy editing, and preparation of submission materials. LeakLens itself does not depend on ChatGPT or a hosted LLM API at runtime. Its semantic analysis runs locally in the browser through Transformers.js and MobileBERT MNLI.
 
 Built by Aster Volta / Eureka Websites Tech.
