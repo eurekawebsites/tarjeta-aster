@@ -1,0 +1,62 @@
+# LeakLens - Devpost Submission Copy
+
+## Tagline
+Private, explainable local AI that finds the leaks between website traffic and revenue.
+
+## Project story
+
+### Inspiration
+Small businesses often spend money on traffic before fixing the last part of the funnel. While reviewing service-business websites, we kept seeing conversion problems that were small technically but expensive commercially: phone-only booking, unclear next steps, mismatched currency labels, weak trust proof, and generic positioning. Existing website audits tend to be either static checklists or opaque LLM reports.
+
+### What it does
+LeakLens turns visible homepage copy into an evidence-backed conversion audit. Users paste website text and select the business type. LeakLens returns a 0-100 conversion-health score, ranked findings with severity and evidence, and a P1/P2/P3 action plan.
+
+The app can also load a browser-side zero-shot language model to detect semantic risks that simple keyword rules can miss, including booking friction, weak trust, vague calls to action, and generic positioning.
+
+### How we built it
+LeakLens uses a hybrid architecture.
+
+1. A deterministic evidence engine checks observable conversion signals such as CTA language, online booking, forms, price and currency markers, trust proof, and differentiation.
+2. A MobileBERT MNLI model runs locally in the browser through Transformers.js for zero-shot classification.
+3. A fusion layer adds semantic findings only when model confidence crosses explicit thresholds.
+4. A remediation layer maps findings to prioritized fixes.
+
+This architecture is intentionally not a prompt wrapper. Rules handle facts that should be deterministic; AI handles semantic ambiguity.
+
+### Responsible AI and privacy
+Business copy is not sent to an LLM provider and no API key is required. AI confidence is presented as a risk signal rather than a factual diagnosis. Deterministic evidence remains visible, and the product continues to work in rules-only mode if the browser model cannot load.
+
+### Challenges
+The main design challenge was balancing usefulness with explainability. An opaque score would be easy to produce but hard to trust. We therefore made every finding evidence-backed and kept the AI layer additive rather than authoritative. A second challenge was making inference practical without a backend, which led to browser-side ONNX inference through Transformers.js.
+
+### Accomplishments
+- Working responsive prototype with no backend dependency
+- Explainable conversion-health scoring
+- Ranked findings and remediation
+- Browser-side zero-shot AI with no API key
+- Graceful non-AI fallback
+- Public documentation and live demo
+
+### What we learned
+AI is most useful here when it complements deterministic product logic rather than replacing it. The hybrid design creates a more trustworthy workflow: obvious signals remain auditable while the model contributes where language is ambiguous.
+
+### What's next
+- Consent-based URL ingestion
+- Screenshot and visual-hierarchy analysis
+- Accessibility and mobile-layout signals
+- Analytics and conversion-event integrations
+- Vertical-specific scoring models
+- Before/after audit history to measure whether fixes improve outcomes
+
+## Built with
+JavaScript, HTML, CSS, Transformers.js, MobileBERT, ONNX, Hugging Face, GitHub Pages
+
+## Links
+Live demo: https://eurekawebsites.github.io/tarjeta-aster/leaklens/
+
+Public source: https://github.com/eurekawebsites/tarjeta-aster/tree/main/leaklens
+
+Presentation deck: https://eurekawebsites.github.io/tarjeta-aster/leaklens/deck.html
+
+## Suggested prize/category
+Best SaaS Product
