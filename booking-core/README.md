@@ -2,9 +2,13 @@
 
 A configuration-driven booking-request core for the Revenue Sprint offer. The demo is intentionally backend-free so it has **zero operating cost** while we validate sales.
 
+Public GitHub Pages demo: `https://eurekawebsites.github.io/tarjeta-aster/booking-core/`
+
 ## What V1 already supports
 
-- Tenant/business configuration from one `config.js`
+- Multiple business/tenant configurations from one shared core
+- Tenant selection by `?business=<tenant-id>` for demos/configuration proof
+- Separate per-tenant local demo storage
 - Services, durations and price labels
 - Multiple locations
 - Provider filtering by service/location
@@ -16,6 +20,14 @@ A configuration-driven booking-request core for the Revenue Sprint offer. The de
 - Optional click-to-WhatsApp handoff with a prefilled structured message
 - Admin demo showing requests stored in the same browser
 - Mobile-first responsive UI
+
+Included proof configurations:
+
+- `clinica-demo-roma` — medical/aesthetic clinic
+- `dental-demo` — dental practice
+- `spa-demo` — massage/wellness business
+
+These are fictional demo configurations. A prospect-specific preview should use public information only and must not imply that the prospect is already a customer.
 
 ## Cost guardrails
 
