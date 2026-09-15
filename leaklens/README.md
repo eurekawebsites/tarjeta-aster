@@ -17,6 +17,11 @@ Paste visible homepage copy into LeakLens and receive a conversion-health score,
 
 The sample intentionally contains realistic conversion problems including phone-only booking, a Mexico/USD currency mismatch, and weak trust proof so the audit can be evaluated immediately without supplying private data.
 
+## Input-coverage guardrail
+LeakLens scores **the supplied copy**, not facts it cannot observe. For a real homepage audit, include the complete visible text from the hero, CTAs, service/pricing sections, proof/reviews, contact form and footer. A partial scraper or excerpt can omit a real CTA or contact form and therefore create an apparent absence signal.
+
+For that reason, absence findings are deliberately phrased as **“not detected in supplied copy”** rather than claiming that the live website definitely lacks a feature. Real-world QA against Eureka Tech exposed this failure mode and it is now a permanent regression case in `TESTING.md`.
+
 ## AI architecture
 LeakLens uses a hybrid approach:
 
@@ -41,6 +46,8 @@ For a service business, one missed high-intent lead can be worth more than the c
 ## Verified behavior
 A live browser QA pass confirmed that the sample audit produces a conversion-health score, ranked evidence-backed findings, prioritized P1/P2 remediation, and successfully loads the browser-local AI model. In the verified sample run, LeakLens scored the page **45/100 (High-friction)** and surfaced three ranked issues: phone-only booking, a potential currency mismatch, and thin trust proof.
 
+A separate complete-copy regression for Eureka Tech recognizes CTA, lead capture, price/quote, trust proof and differentiation signals. This regression exists specifically to prevent the original false-positive vocabulary bug from returning.
+
 ## Tech
 - HTML/CSS/JavaScript
 - Transformers.js 4.2 via CDN
@@ -54,6 +61,7 @@ A live browser QA pass confirmed that the sample audit produces a conversion-hea
 - No user data is persisted.
 - The product has a non-AI fallback.
 - Semantic AI findings are thresholded before they can affect the audit.
+- Absence signals are scoped to supplied evidence rather than asserted as unobserved website facts.
 
 ## Target users
 Local service businesses, agencies, freelancers and growth teams that want a fast, privacy-friendly audit before spending more on traffic.
@@ -62,7 +70,7 @@ Local service businesses, agencies, freelancers and growth teams that want a fas
 The LeakLens product, scoring workflow, local-AI integration, public demo, documentation, presentation, and submission materials were created for the AI Builders Hackathon 2026. General-purpose development tools and open-source libraries are disclosed below.
 
 ## Roadmap
-- Consent-based URL ingestion
+- Consent-based URL ingestion with extraction-completeness checks
 - Screenshot and visual-hierarchy analysis
 - Accessibility/mobile checks
 - Analytics and conversion-event integrations
