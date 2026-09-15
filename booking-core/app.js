@@ -1,8 +1,9 @@
 import { BUSINESS } from './config.js'
+import { createBookingStorage } from './storage.js'
 
 const $ = (s) => document.querySelector(s)
 const state = { service: '', location: '', provider: 'any', date: '', time: '' }
-const storeKey = `eureka-booking:${BUSINESS.id}:requests`
+const storage = createBookingStorage(BUSINESS)
 
 function moneySafe(text) { return String(text || '').replace(/[<>]/g, '') }
 function esc(text) { return String(text || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c])) }
@@ -93,17 +94,12 @@ function renderSummary() {
 
 function renderAll(){ renderServices(); renderLocations(); renderProviders(); renderDates(); renderTimes(); renderSummary() }
 
-function saveRequest(request){
-  const existing=JSON.parse(localStorage.getItem(storeKey)||'[]')
-  existing.unshift(request); localStorage.setItem(storeKey,JSON.stringify(existing.slice(0,100)))
-}
-
 function whatsappUrl(request){
   const msg=[`Hola, soy ${request.customer.name}.`,`Quiero solicitar: ${request.service.name}.`,`Sucursal: ${request.location.name}.`,`Horario preferido: ${humanDate(request.date)} ${request.time}.`,`Tel: ${request.customer.phone}.`,`Folio: ${request.id}.`].join('\n')
   return `https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(msg)}`
 }
 
-$('#bookingForm').addEventListener('submit', e => {
+$('#bookingForm').addEventListener('submit', async e => {
   e.preventDefault()
   if(!(state.service&&state.location&&state.provider&&state.date&&state.time)) return
   const form=new FormData(e.currentTarget)
@@ -115,12 +111,18 @@ $('#bookingForm').addEventListener('submit', e => {
     service:getService(), location:getLocation(), provider:getProvider(), date:state.date, time:state.time,
     customer:{name:moneySafe(form.get('name')),phone:moneySafe(form.get('phone')),email:moneySafe(form.get('email')),notes:moneySafe(form.get('notes'))}
   }
-  saveRequest(request)
-  $('#bookingFlow').classList.add('hidden')
-  $('#success').classList.remove('hidden')
-  $('#folio').textContent=request.id
-  $('#successText').textContent=`Solicitud para ${request.service.name}, ${humanDate(request.date)} a las ${request.time}. La cita queda pendiente de confirmación.`
-  $('#whatsapp').href=whatsappUrl(request)
+  const submit=e.currentTarget.querySelector('button[type="submit"]')
+  submit.disabled=true; submit.textContent='Guardando…'
+  try {
+    await storage.saveRequest(request)
+    $('#bookingFlow').classList.add('hidden')
+    $('#success').classList.remove('hidden')
+    $('#folio').textContent=request.id
+    $('#successText').textContent=`Solicitud para ${request.service.name}, ${humanDate(request.date)} a las ${request.time}. La cita queda pendiente de confirmación.`
+    $('#whatsapp').href=whatsappUrl(request)
+  } finally {
+    submit.disabled=false; submit.textContent='Solicitar cita'
+  }
 })
 
 $('#restart').onclick=()=>location.reload()
