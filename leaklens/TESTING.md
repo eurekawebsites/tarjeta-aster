@@ -30,6 +30,16 @@ A live browser QA pass produced:
 
 The exact number of displayed findings can change if the sample or scoring logic changes, but every finding must remain evidence-backed and actionable.
 
+## Real-world false-positive regression test
+
+Eureka Tech exposed three false positives in the first deterministic vocabulary pass. The regression case must recognize these as positive signals when they appear in supplied copy:
+
+- **CTA:** “Get a quote”, “Let’s talk”, “Explore products”, “Send us a message”
+- **Lead capture:** “Send us a message”, “Email us”, “WhatsApp”
+- **Differentiation:** “custom”, “built around your real workflow”, “not a generic template”
+
+Absence findings must be phrased as **not detected in the supplied copy**, not as proof that the live website lacks the feature. This prevents an incomplete text extraction from becoming a categorical website claim.
+
 ## Local AI acceptance test
 
 1. Refresh the live app.
@@ -54,6 +64,7 @@ Open browser developer tools and run an audit in rules-only mode. The app has no
 - Fewer than 80 characters: the audit should not run and focus should return to the text field.
 - Normal homepage copy: the audit should run without page navigation or reload.
 - Re-running an audit: the results should update in place.
+- Partial copy: absence findings must say the signal was not detected in the supplied copy.
 
 ## Responsive behavior
 
